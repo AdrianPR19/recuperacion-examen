@@ -140,6 +140,7 @@ systemctl start flask_app
 ```
 
 ## Configuración de Nginx
+importante descargar nginx apt get nginx
 
 **Fichero `/etc/nginx/sites-available/app.conf`**
 ```nginx
@@ -185,5 +186,14 @@ Y debería mostrarse:
 <h1>App desplegada</h1>
 ```
 
+
+En el de python y flask:
+Si no va al principio el pipenv --version
+ls -l ~/.local/bin
+export PATH=$HOME/.local/bin:$PATH
+pipenv --version
+echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+which pipenv
 
  
