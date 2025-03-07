@@ -187,13 +187,44 @@ Y debería mostrarse:
 ```
 
 
-En el de python y flask:
-Si no va al principio el pipenv --version
+
+
+
+
+
+
+
+
+# Configuración y Uso del Entorno
+
+## Instalación de Pipenv
+Si `pipenv --version` no funciona al principio, sigue estos pasos:
+
+```bash
 ls -l ~/.local/bin
 export PATH=$HOME/.local/bin:$PATH
 pipenv --version
 echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 which pipenv
+```
+
+## Configuración de Vagrant
+
+Asegúrate de añadir la siguiente configuración a tu `Vagrantfile` para evitar la inserción automática de claves SSH:
+
+```ruby
+config.ssh.insert_key = false
+```
+
+Para redirigir el puerto 8080 de la máquina virtual al anfitrión:
+
+```ruby
+config.vm.network "forwarded_port", guest: 8080, host: 8080
+```
+
+Con esto, podrás acceder al servidor en `http://localhost:8080` desde tu máquina anfitriona.
+
+
 
  
